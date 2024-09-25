@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./got.css";
 import data from "../data/got.json";
 
 export default function Got() {
@@ -7,7 +6,7 @@ export default function Got() {
 
   let allPeople = data.reduce((acc, cv) => {
     acc = acc.concat(cv.people);
-    // console.log();
+    // console.log('acc');
     return acc;
   }, []);
 
@@ -20,10 +19,10 @@ export default function Got() {
 
   return (
     <>
-      <header>
+      <header className="got-head">
         <h1 className="center">👑Peoples of GOT</h1>
       </header>
-      <main className="container">
+      <main className="got-main-container">
         <input
           placeholder="Search"
           className="search"
@@ -32,7 +31,7 @@ export default function Got() {
             setSearchTerm(target.value);
           }}
         />
-        <ul className="container flex wrap">
+        <ul className="got-ul got-container flex wrap">
           {filteredPeople.length === 0 ? (
             <p className="center">No people found!</p>
           ) : (
@@ -40,7 +39,7 @@ export default function Got() {
           )}
           {filteredPeople.map((people, i) => (
             <li key={i} className="flex center column">
-              <div>
+              <div className="got-card-content">
                 <img src={people.image} alt={people.name} />
                 <h2 className="center">{people.name}</h2>
               </div>
