@@ -1,13 +1,20 @@
 import "./App.css";
-import Bookly from "./components/Bookly";
-// import Got from "./components/Got";
+import Sidebar from "./components/Sidebar";
+import { BrowserRouter as Router } from "react-router-dom";
+import Main from "./components/Main.js";
+import Header from "./components/Header.js";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Got /> */}
-      <Bookly />
-    </div>
+    <>
+      <Header />
+      <div className="main">
+        <Router>
+          <Sidebar />
+          <Main />
+        </Router>
+      </div>
+    </>
   );
 }
 
